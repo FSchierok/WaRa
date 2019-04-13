@@ -33,10 +33,10 @@ fig = plt.figure(1)
 for flug in range(len(v0)):
     t_plot = np.linspace(0, data[3][flug], 1000)
     plt.plot(*flugparabel(t_plot, alpha[flug],
-                          v0[flug]), label=f"Flug {flug}")
+                          v0[flug]), label=f"Flight {flug}")
 
-plt.xlabel(r"Weite/$m$")
-plt.ylabel(r"Höhe/$m$")
+plt.xlabel(r"Range/$m$")
+plt.ylabel(r"Altitude/$m$")
 plt.legend()
-# plt.show()
+plt.show()
 # plt.savefig("2019-04-12.png")
