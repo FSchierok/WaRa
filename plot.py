@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-#from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import Axes3D
 from scipy.constants import g
 
 
@@ -22,7 +22,7 @@ def flugparabel(t, alpha, v0):
     return x, y
 
 
-data = np.genfromtxt("data/2019-04-12.txt", unpack=True)
+data = np.genfromtxt("data/2019-04-12.csv", delimiter=',', unpack=True)
 
 alpha = flugwinkel(data[2], data[3])
 v0 = startGeschwindigkeit(data[2], alpha)
@@ -39,4 +39,11 @@ plt.xlabel(r"Weite/$m$")
 plt.ylabel(r"Höhe/$m$")
 plt.legend()
 # plt.show()
-# plt.savefig("2019-04-12.png")
+# plt.savefig("2019-04-12.svg")
+plt.clf()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot(data[0], data[1], np.sqrt(data[2]**2/4+ymax**2), ".")
+ax.set_xlabel("Druck")
+ax.set_ylabel("Wasser")
+ax.set_zlabel("Abstand")
+plt.show()
