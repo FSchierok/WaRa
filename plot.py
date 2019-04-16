@@ -14,7 +14,6 @@ def flugparabel(t, alpha, v0):
 df = DataBase()
 fig = plt.figure(1)
 for index, flug in df.iterrows():
-
     plt.plot(*flugparabel(np.linspace(0, flug["Zeit"], 200),
                           flug["Winkel"], flug["v0"]), label=index)
 plt.xlabel(r"Weite/$m$")
